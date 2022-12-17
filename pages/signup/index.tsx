@@ -22,8 +22,25 @@ const CFaLock = chakra(FaLock);
 
 const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const handleShowClick = () => setShowPassword(!showPassword);
+
+  const HandlSubmit = async () => {
+    let payload = {
+      email: email,
+      password: password,
+    };
+    const response = await fetch("/api/signup", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    return;
+    console.log(response);
+  };
 
   return (
     <Flex
@@ -43,7 +60,7 @@ const Signup = () => {
         <Avatar bg="teal.500" />
         <Heading color="teal.400">Welcome to Wiz Air Cargo</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
-          <form>
+          <form onSubmit={HandlSubmit}>
             <Stack
               spacing={4}
               p="1rem"
@@ -56,7 +73,14 @@ const Signup = () => {
                     pointerEvents="none"
                     children={<CFaUserAlt color="gray.300" />}
                   />
-                  <Input type="email" placeholder="email address" />
+                  <Input
+                    type="email"
+                    name="email"
+                    placeholder="email address"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                    }}
+                  />
                 </InputGroup>
               </FormControl>
               <FormControl>
@@ -69,6 +93,10 @@ const Signup = () => {
                   <Input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
+                    name="password"
+                    onChange={(e) => {
+                      setPassword(e.target.value);
+                    }}
                   />
                   <InputRightElement width="4.5rem">
                     <Button h="1.75rem" size="sm" onClick={handleShowClick}>

@@ -22,6 +22,12 @@ import { TbLetterW } from "react-icons/tb";
 const NavBar = () => {
   const isDesktop = useMediaQuery("(min-width: 48em)");
   const router = useRouter();
+  const user = false;
+  const showNavbar =
+    router.asPath !== "/login" &&
+    router.asPath !== "/signup" &&
+    router.asPath !== "/" &&
+    router.asPath !== "/signup";
   console.log(router.asPath);
   return (
     <Box as="section" pb={{ base: "12", md: "24" }}>
@@ -41,7 +47,7 @@ const NavBar = () => {
             /> */}
             {isDesktop ? (
               <Flex justify="space-between" flex="1">
-                {router.asPath !== "/login" && router.asPath !== "/signup" ? (
+                {showNavbar ? (
                   <>
                     <ButtonGroup
                       variant="link"
@@ -52,7 +58,7 @@ const NavBar = () => {
                       w="40%"
                       justifyContent={"space-between"}
                     >
-                      <Link href="/">
+                      <Link href="/bookings">
                         <Text ml="30px" color={"white"} key={"1"}>
                           {"Bookings"}
                         </Text>
@@ -82,20 +88,26 @@ const NavBar = () => {
                     </Link>
                   </>
                 ) : null}
-
-                <HStack
-                  spacing="3"
-                  mt="20px"
-                  color={"white"}
-                  visibility={"hidden"}
-                >
-                  <Button mr="22px" variant="ghost">
-                    Sign in
-                  </Button>
-                  <Button mr="22px" variant="primary">
-                    Sign up
-                  </Button>
-                </HStack>
+                {router.asPath === "/" && !user && (
+                  <HStack
+                    spacing="3"
+                    mt="20px"
+                    color={"white"}
+                    // visibility={"hidden"}
+                    ml={showNavbar ? "" : "90%"}
+                  >
+                    <Link href={"/login"}>
+                      <Button mr="22px" variant="ghost">
+                        Sign in
+                      </Button>
+                    </Link>
+                    <Link href={"/signup"}>
+                      <Button mr="22px" variant="primary">
+                        Sign up
+                      </Button>
+                    </Link>
+                  </HStack>
+                )}
               </Flex>
             ) : (
               <IconButton

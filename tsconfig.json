@@ -11,10 +11,11 @@
     "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "components/Table/Table.jsx", "components/Table/BookingColumns.js"],
   "exclude": ["node_modules"]
 }

@@ -32,7 +32,7 @@ const QuotesAdd = () => {
               backgroundColor="whiteAlpha.900"
               boxShadow="md"
             >
-              <Text ml="150px" fontSize={"30px"} mb="30px">
+              <Text ml="150px" fontSize={"30px"}>
                 Add a Quote
               </Text>
               <FormControl>

@@ -1,116 +1,8 @@
 import { useEffect, useState } from "react";
-import { Box, Input, ChakraProvider } from "@chakra-ui/react";
-import { createColumnHelper } from "@tanstack/react-table";
-import { DataTable } from "../DataTable";
-// import { Column } from "react-table";
-type UnitConversion = {
-  fromUnit: string;
-  toUnit: string;
-  factor: number;
-};
-type BookingRequest = {
-  quote_id: string;
-  quote_requsted_on: string;
-  origin: string;
-  to: string;
-  status: string;
-  eta: string;
-  requested_by: string;
-};
-
-const data: BookingRequest[] = [
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    quote_id: "DJNDBS",
-    quote_requsted_on: "12 Nov",
-    origin: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-];
-
-const columnHelper = createColumnHelper<BookingRequest>();
-
-const columns = [
-  columnHelper.accessor("quote_id", {
-    cell: (info) => info.getValue(),
-    header: "Quote ID",
-  }),
-  columnHelper.accessor("quote_requsted_on", {
-    header: "Quote requested on",
-    cell: (info) => {
-      const rows = info.getValue();
-      return <Box color="blue">{rows}</Box>;
-    },
-  }),
-  columnHelper.accessor("origin", {
-    cell: (info) => info.getValue(),
-    header: "Origin",
-  }),
-  columnHelper.accessor("to", {
-    cell: (info) => info.getValue(),
-    header: "Destination",
-  }),
-  columnHelper.accessor("status", {
-    cell: (info) => info.getValue(),
-    header: "Status",
-  }),
-  columnHelper.accessor("eta", {
-    cell: (info) => info.getValue(),
-    header: "ETA",
-  }),
-  columnHelper.accessor("requested_by", {
-    cell: (info) => info.getValue(),
-    header: "Requested By",
-  }),
-];
-
+import { Box, Text } from "@chakra-ui/react";
+import Table from "../../components/Table/Table";
+import { COLUMNS } from "../../components/Table/BookingRequestColumns";
+import { BookingRequestData } from "../../components/mock-data";
 export default function QuotesPage() {
   // const { control } = useForm();
   const [data1, setData] = useState(null);
@@ -126,10 +18,14 @@ export default function QuotesPage() {
 
   console.log(data1, "tanu");
   return (
-    <Box backgroundColor="gray.200" h="100vh">
-      <Box>
-        <Input></Input>
-        <DataTable columns={columns} data={data} />
+    <Box>
+      <Box backgroundColor="gray.200" h="100vh">
+        <Text fontSize={"25px"} ml="44px" mb="40px" p="25px">
+          Quotes
+        </Text>
+        <Box w="90%" ml="5%">
+          <Table tableColumns={COLUMNS} tableData={BookingRequestData} />
+        </Box>
       </Box>
     </Box>
   );

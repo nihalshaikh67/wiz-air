@@ -1,120 +1,33 @@
 import * as React from "react";
-import { Box, ChakraProvider } from "@chakra-ui/react";
-import { createColumnHelper } from "@tanstack/react-table";
-import { DataTable } from "./DataTable";
-import { Column } from "react-table";
-type UnitConversion = {
-  fromUnit: string;
-  toUnit: string;
-  factor: number;
-};
-type Booking = {
-  booking_id: string;
-  booking_on: string;
-  from: string;
-  to: string;
-  status: string;
-  eta: string;
-  requested_by: string;
-};
-
-const data: Booking[] = [
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-  {
-    booking_id: "DJNDBS",
-    booking_on: "12 Nov",
-    from: "Chennai",
-    to: "Pune",
-    status: "Booking created",
-    eta: "20 Nov",
-    requested_by: "Admin",
-  },
-];
-
-const columnHelper = createColumnHelper<Booking>();
-
-const columns = [
-  columnHelper.accessor("booking_id", {
-    cell: (info) => info.getValue(),
-    header: "Booking ID",
-  }),
-  columnHelper.accessor("booking_on", {
-    cell: (info) => info.getValue(),
-    header: "Booking On",
-  }),
-  columnHelper.accessor("from", {
-    cell: (info) => info.getValue(),
-    header: "From",
-  }),
-  columnHelper.accessor("to", {
-    cell: (info) => info.getValue(),
-    header: "to",
-  }),
-  columnHelper.accessor("status", {
-    cell: (info) => info.getValue(),
-    header: "Status",
-  }),
-  columnHelper.accessor("eta", {
-    cell: (info) => info.getValue(),
-    header: "ETA",
-  }),
-  columnHelper.accessor("requested_by", {
-    cell: (info) => info.getValue(),
-    header: "Requested By",
-  }),
-];
-
+import { Box, Button } from "@chakra-ui/react";
+import useFetch from "../components/fetchAPI/useFetch";
 export default function Home() {
-  // const { control } = useForm();
+  const [data] = useFetch("/api/bookings");
+  console.log(data);
+
+  const submitdata = async () => {
+    let payload = {
+      booking_id: "@#$%^&",
+      booking_on: "2022-12-17T10:18:03.307Z",
+      origin: "NIHAL",
+      destination: "NIHAL",
+      status: "Booking created",
+      eta: "20 Nov",
+      requested_by: "NIHAl",
+    };
+    const response = await fetch("/api/bookings", {
+      method: "POST",
+      body: JSON.stringify(payload),
+      headers: {
+        "Content-type": "application/json",
+      },
+    });
+    console.log(response);
+  };
   return (
-    <Box backgroundColor="gray.200" h="100vh">
-      <Box w="100%">
-        <DataTable columns={columns} data={data} />
-      </Box>
+    <Box>
+      LANDING PAGE
+      <Button onClick={() => submitdata()}></Button>
     </Box>
   );
 }
