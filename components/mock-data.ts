@@ -1,12 +1,31 @@
 export type Booking = {
-  booking_id: string;
-  booking_on: string;
+  customer?: string;
+  type?: string;
   origin: string;
   destination: string;
+  hscode?: string;
+  remarks?: string;
+  id: string;
+  booking_id: string;
+  booking_on: string;
   status: string;
   eta: string;
   requested_by: string;
+  quotes: QuoteData[];
 };
+
+export type QuoteData = {
+  liner: string;
+  free_days: string;
+  charges: string;
+  frieght_type: string;
+  currency: string;
+  buy: string;
+  sell: string;
+  unit: string;
+  tax: string;
+};
+
 export type BookingRequest = {
   quote_id: string;
   quote_requested_on: string;
@@ -17,7 +36,7 @@ export type BookingRequest = {
   requested_by: string;
 };
 
-export const BookingData: Booking[] = [
+export const BookingData = [
   {
     booking_id: "DJNDBS",
     booking_on: "2022-12-17T10:18:03.307Z",

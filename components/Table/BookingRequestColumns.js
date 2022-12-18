@@ -1,8 +1,7 @@
-import { format } from "date-fns";
 import { Box } from "@chakra-ui/react";
 import ColumnFilter from "./ColumnFilter";
 import Link from "next/link";
-
+import { formatEpochToDate } from "../../utils/formatCurrency";
 // quote_id: string;
 // quote_requested_on: string;
 // origin: string;
@@ -32,11 +31,16 @@ export const COLUMNS = [
     Filter: ColumnFilter,
     Cell: (props) => {
       const rowData = props.row.original;
-      const quote_requested_on = format(
-        new Date(rowData.quote_requested_on),
-        "dd/MM/yyyy"
+      const quote_requested_on = formatEpochToDate(rowData.quote_requested_on);
+      return (
+        <Box
+          onClick={() => {
+            console.log(rowData, "datatatatatt");
+          }}
+        >
+          {quote_requested_on}
+        </Box>
       );
-      return <Box>{quote_requested_on}</Box>;
     },
   },
   {
@@ -66,7 +70,17 @@ export const COLUMNS = [
     Cell: (props) => {
       const rowData = props.row.original;
       const status = rowData.status;
-      return <Box>{status}</Box>;
+      const disable = rowData.quotes.length;
+      // console.log(rowData.quotes.length, "naihl");
+      return (
+        <Box pointerEvents={disable && "none"}>
+          <Link href="/">
+            <Box color={disable && "gray"}>
+              {disable ? "view quote" : status}
+            </Box>
+          </Link>
+        </Box>
+      );
     },
   },
   {

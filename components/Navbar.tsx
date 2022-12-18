@@ -52,32 +52,33 @@ const NavBar = () => {
                     <ButtonGroup
                       variant="link"
                       spacing="8"
-                      mt="20px"
+                      mt="12px"
                       d="flex"
                       // bg="black"
                       w="40%"
+                      // float={"left"}
                       justifyContent={"space-between"}
                     >
                       <Link href="/bookings">
-                        <Text ml="30px" color={"white"} key={"1"}>
+                        <Text mr="130px" color={"white"} key={"1"}>
                           {"Bookings"}
                         </Text>
                       </Link>
                       <Link href="/quotes">
-                        <Text ml="30px" color={"white"} key={"2"}>
+                        <Text mr="130px" color={"white"} key={"2"}>
                           {"Quotes"}
                         </Text>
                       </Link>
                       <Link href="/reports">
-                        <Text ml="30px" color={"white"} key={"3"}>
+                        <Text mr="630px" color={"white"} key={"3"}>
                           {"Report"}
                         </Text>
                       </Link>
                     </ButtonGroup>
                     <Link href={"/quotes/add"}>
                       <Text
-                        mt="10px"
-                        mr="60px"
+                        mt="6px"
+                        mr="90px"
                         color={"white"}
                         key={"3"}
                         p="5px"
@@ -94,7 +95,7 @@ const NavBar = () => {
                     mt="20px"
                     color={"white"}
                     // visibility={"hidden"}
-                    ml={showNavbar ? "" : "90%"}
+                    ml={showNavbar ? "" : "390%"}
                   >
                     <Link href={"/login"}>
                       <Button mr="22px" variant="ghost">
@@ -108,6 +109,7 @@ const NavBar = () => {
                     </Link>
                   </HStack>
                 )}
+                {/* logout */}
               </Flex>
             ) : (
               <IconButton

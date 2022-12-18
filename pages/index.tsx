@@ -1,33 +1,25 @@
 import * as React from "react";
 import { Box, Button } from "@chakra-ui/react";
 import useFetch from "../components/fetchAPI/useFetch";
+import { useStateContext } from "../context/StateContext";
+import Header from ".././components/homepage/header";
+import Howitwork from ".././components/homepage/Howitwork";
+import About from ".././components/homepage/About";
+import Agent from ".././components/homepage/Agent";
+import Contact from ".././components/homepage/contact";
+// import "../styles/index.module.css";
 export default function Home() {
-  const [data] = useFetch("/api/bookings");
-  console.log(data);
-
-  const submitdata = async () => {
-    let payload = {
-      booking_id: "@#$%^&",
-      booking_on: "2022-12-17T10:18:03.307Z",
-      origin: "NIHAL",
-      destination: "NIHAL",
-      status: "Booking created",
-      eta: "20 Nov",
-      requested_by: "NIHAl",
-    };
-    const response = await fetch("/api/bookings", {
-      method: "POST",
-      body: JSON.stringify(payload),
-      headers: {
-        "Content-type": "application/json",
-      },
-    });
-    console.log(response);
-  };
+  // const [data] = useFetch("/api/bookings");
+  // console.log(data);
+  const { bookingsData } = useStateContext();
+  console.log(bookingsData);
   return (
     <Box>
-      LANDING PAGE
-      <Button onClick={() => submitdata()}></Button>
+      <Header />
+      <Howitwork />
+      <About />
+      <Agent />
+      <Contact />
     </Box>
   );
 }

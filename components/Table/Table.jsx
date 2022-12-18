@@ -10,12 +10,13 @@ import GlobalFilter from "./GlobalFilter";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import { Box, Button, Text } from "@chakra-ui/react";
 const Table = ({ tableColumns, tableData }) => {
-  const columns = useMemo(() => tableColumns, []);
-  const data = useMemo(() => tableData, []);
+  console.log(tableData, "nihal");
+  // const columns = useMemo(() => tableColumns, []);
+  // const data = useMemo(() => tableData, []);
   const tableInstance = useTable(
     {
-      columns,
-      data,
+      columns: tableColumns || [],
+      data: tableData || [],
     },
     useFilters,
     useGlobalFilter,
@@ -83,23 +84,23 @@ const Table = ({ tableColumns, tableData }) => {
         mt="10px"
       >
         <Button
-          bg="white"
+          bg="gray"
           fontSize={"20px"}
           fontWeight={500}
           disabled={!canPreviousPage}
           onClick={() => previousPage()}
         >
-          <FiArrowLeft />
+          <FiArrowLeft color="black" />
         </Button>
         <Button
-          bg="white"
+          bg="gray"
           ml="20px"
           fontSize={"20px"}
           fontWeight={500}
           disabled={!canNextPage}
           onClick={() => nextPage()}
         >
-          <FiArrowRight />
+          <FiArrowRight color="black" />
         </Button>
       </Box>
       <style jsx>{`
