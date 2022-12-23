@@ -26,15 +26,7 @@ const QuotesAdd = () => {
   const result = Math.random().toString(36).substring(2, 7);
 
   const router = useRouter();
-  // {
-  //   quote_id: string;
-  //   quote_requested_on: string;
-  //   origin: string;
-  //   destination: string;
-  //   status: string;
-  //   eta: string;
-  //   requested_by: string;
-  // };
+
   console.log(errors, "error");
   const onSubmission = (data: any) => {
     // return;

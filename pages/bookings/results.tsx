@@ -4,6 +4,7 @@ import { useStateContext } from "../../context/StateContext";
 import BookingInfo from "../../components/BookingInfo";
 import { Box, Text, Stack, Flex } from "@chakra-ui/react";
 import Link from "next/link";
+import QuoteCard from "../../components/QuoteCard";
 const results = () => {
   const { qoutesData } = useStateContext();
 
@@ -13,6 +14,8 @@ const results = () => {
     (item: any) => item.quote_id === quoteId
   );
   console.log(currentQuote, "nila");
+  const quote = currentQuote?.quotes[0];
+  console.log(quote);
   return (
     <Flex>
       <Box>
@@ -25,9 +28,10 @@ const results = () => {
         <Link href={`/quotes/rates?qid=${quoteId}`}>
           <Text fontSize={"16px"} color={"teal"} mt="4px">
             {" "}
-            Add a quote?
+            {quote ? "Add Another quote?" : "Add a quote?"}
           </Text>
         </Link>
+        {quote && <QuoteCard quote={quote} bookingRequest={currentQuote} />}
       </Box>
     </Flex>
   );

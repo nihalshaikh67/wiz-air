@@ -30,7 +30,7 @@ const rates = () => {
     const payload = data;
     const newItem = { ...currentQuote, quotes: payload };
     addQuoteRates(newItem, data);
-    // router.push(`/bookings/results?qid=${newItem.quote_id}`);
+    router.push(`/bookings/results?qid=${newItem.quote_id}`);
   };
   return (
     <Box>

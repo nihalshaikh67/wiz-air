@@ -2,7 +2,7 @@ import { format } from "date-fns";
 import { Box } from "@chakra-ui/react";
 import ColumnFilter from "./ColumnFilter";
 import Link from "next/link";
-
+import { formatEpochToDate } from "../../utils/formatCurrency";
 export const COLUMNS = [
   {
     Header: "BOOKING ID",
@@ -24,8 +24,10 @@ export const COLUMNS = [
     Filter: ColumnFilter,
     Cell: (props) => {
       const rowData = props.row.original;
-      const booking_on = format(new Date(rowData.booking_on), "dd/MM/yyyy");
-      return <Box>{booking_on}</Box>;
+      const booking_on = rowData.booking_on;
+      // console.log(booking_on);
+      const booking_on1 = formatEpochToDate(booking_on);
+      return <Box>{booking_on1}</Box>;
     },
   },
   {

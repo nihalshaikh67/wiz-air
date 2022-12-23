@@ -19,10 +19,12 @@ import { FiMenu } from "react-icons/fi";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { TbLetterW } from "react-icons/tb";
+import { useStateContext } from "../context/StateContext";
 const NavBar = () => {
+  const { isLoggedin, setIsLoggedin } = useStateContext();
+  console.log(isLoggedin, "log");
   const isDesktop = useMediaQuery("(min-width: 48em)");
   const router = useRouter();
-  const user = false;
   const showNavbar =
     router.asPath !== "/login" &&
     router.asPath !== "/signup" &&
@@ -89,7 +91,24 @@ const NavBar = () => {
                     </Link>
                   </>
                 ) : null}
-                {router.asPath === "/" && !user && (
+                {isLoggedin ? (
+                  <Button
+                    border={"1px solid gray"}
+                    color={"black"}
+                    bg="white"
+                    w="80px"
+                    borderRadius={"10px"}
+                    mr="22px"
+                    variant="ghost"
+                    onClick={() => {
+                      setIsLoggedin(false);
+                      localStorage.removeItem("token-info");
+                      router.push("/");
+                    }}
+                  >
+                    logout
+                  </Button>
+                ) : (
                   <HStack
                     spacing="3"
                     mt="20px"
@@ -97,18 +116,28 @@ const NavBar = () => {
                     // visibility={"hidden"}
                     ml={showNavbar ? "" : "390%"}
                   >
-                    <Link href={"/login"}>
-                      <Button mr="22px" variant="ghost">
+                    <Link href={"/signup"}>
+                      <Button
+                        mr="22px"
+                        border={"1px solid gray"}
+                        color={"black"}
+                        bg="white"
+                        w="80px"
+                        mt="-5px"
+                        borderRadius={"10px"}
+                        variant="ghost"
+                      >
                         Sign in
                       </Button>
                     </Link>
                     <Link href={"/signup"}>
-                      <Button mr="22px" variant="primary">
+                      <Button mr="22px" visibility={"hidden"} variant="primary">
                         Sign up
                       </Button>
                     </Link>
                   </HStack>
                 )}
+
                 {/* logout */}
               </Flex>
             ) : (

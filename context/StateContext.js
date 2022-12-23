@@ -27,7 +27,7 @@ export const StateContext = ({ children }) => {
   };
   const [bookingsData, setBookingsData] = useState(getBookingsItems());
   const [qoutesData, setQuotesData] = useState(getQuotesItems());
-  const [quoteList, setQuoteList] = useState([]);
+  const [isLoggedin, setIsLoggedin] = useState(false);
   useEffect(() => {
     localStorage.setItem("bookings", JSON.stringify(bookingsData));
   }, [bookingsData]);
@@ -58,6 +58,14 @@ export const StateContext = ({ children }) => {
     setQuotesData(updateQuotesList);
   };
   console.log(qoutesData, "babababa");
+
+  const AddBooking = (item) => {
+    const updateQuotesList1 = qoutesData.filter((elm) => {
+      return elm.quote_id !== item.quote_id;
+    });
+    setQuotesData(updateQuotesList1);
+    setBookingsData([...bookingsData, item]);
+  };
   return (
     <Context.Provider
       value={{
@@ -66,7 +74,9 @@ export const StateContext = ({ children }) => {
         AddQuote,
         qoutesData,
         addQuoteRates,
-        setQuoteList,
+        setIsLoggedin,
+        isLoggedin,
+        AddBooking,
       }}
     >
       {children}
