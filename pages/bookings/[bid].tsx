@@ -17,7 +17,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { MdCheckCircle, MdSettings } from "react-icons/md";
 // import Multistep from "../../components/Multstep";
 import VerticalLinearStepper from "../../components/verticalLineSteps";
-import { StyledEngineProvider } from "@mui/material/styles";
+// import { StyledEngineProvider } from "@mui/material/styles";
 import Progress from "../../components/Progress";
 import BookingInfo from "../../components/BookingInfo";
 const Booking = () => {
@@ -38,7 +38,7 @@ const Booking = () => {
   return (
     <Box>
       {isSSR ? (
-        <StyledEngineProvider injectFirst>
+        <div>
           <Box h="70vh">
             <Box w="30%" h="50vh" float={"left"} bg="">
               {/* <Box mt="20px" display={"flex"} justifyContent={"space-around"}>
@@ -97,7 +97,7 @@ const Booking = () => {
           >
             <Progress />
           </Box>
-        </StyledEngineProvider>
+        </div>
       ) : null}
     </Box>
   );
