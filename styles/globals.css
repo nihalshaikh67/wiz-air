@@ -48,7 +48,7 @@ body{
                 display: flex;
       }
       .active{
-          background-color: #236c7e;
+          background-color: #4158d0;
           color:rgb(255, 255, 255);
                 box-shadow: 5px 10px 30px rgba(64, 149, 198, 0.411);
                 transition: all ease 0.2s;
@@ -80,7 +80,7 @@ body{
           letter-spacing: 1px;
           border-radius: 3px;
           transition: 0.2s ease-in-out;
-          background-color: #236c7e;
+          background-color: #4158d0;
       }
       nav ul li a:hover{
                 background-color: #064757;
@@ -111,10 +111,10 @@ body{
                 font-size: 46px;
                 margin:0px;
                 letter-spacing: 3px;
-                color:#236c7e;
+                color:#4158d0;
       }
       .intro p{
-          color: #064757; font-weight: 500;
+          color: #4158d0; font-weight: 500;
       }
       .header-btn{
                 width:110px;
@@ -122,13 +122,13 @@ body{
                 display: flex;
                 justify-content: center;
           align-items: center;
-          background-color: #236c7e;
+          background-color: #4158d0;
           box-shadow: 5px 10px 30px rgba(2, 82, 255, 0.137);
           border-radius: 10px;
                 color:#ffffff;
       }
       .header-btn:hover{
-                background-color: #04afda;
+                background-color: #4158d0;
           transition: all ease 0.5s;
           color: #ffffff;
           box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
@@ -145,7 +145,7 @@ body{
       }
       .how-it-works {
           padding: 3rem 0;
-          background: #236c7e;
+          background: #4158d0;
           text-align: center;
       }
       
@@ -190,7 +190,7 @@ body{
       }
       .about-text h2{
                 font-size: 2rem;
-                color:#236c7e;
+                color:#4158d0;
                 font-weight: 400;
       }
       .about-text h2{
@@ -209,10 +209,10 @@ body{
                 border: none;
           outline: none;
           color: #ffffff;
-                background-color:#236c7e;
+                background-color:#4158d0;
       }
       .about-text button:hover{
-                background-color: #04afda;
+                background-color: #4158d0;
           transition: all ease 0.3s;
           color: #ffffff;
           box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
@@ -231,7 +231,7 @@ body{
           align-items: center;
           justify-content: center;
           padding-top: 40px ;
-          background: #236c7e;
+          background: #4158d0;
       }
       
       .a-heading h1{
@@ -299,13 +299,13 @@ body{
                 display: flex;
                 justify-content: center;
           align-items: center;
-          background-color: #236c7e;
+          background-color: #4158d0;
           box-shadow: 5px 10px 30px rgba(2, 82, 255, 0.137);
           border-radius: 10px;
                 color:#ffffff;
       }
       .agent-btn:hover{
-                background-color: #04afda;
+                background-color: #4158d0;
           transition: all ease 0.5s;
           color: #ffffff;
           box-shadow: 5px 0px 30px rgba(2, 154, 255, 0.39);
@@ -388,7 +388,7 @@ body{
                 bottom: 20px;
                 transform: translateX(-50%);
                 border-radius: 15% 15% 15% 15% / 50% 50% 50% 50%;
-                background:linear-gradient(120deg,#064757 20%,#04afda);
+                background:linear-gradient(120deg,#064757 20%,#4158d0);
                 color:#FFFFFF;
                 display: none;
                 animation: fade 0.2s;
@@ -401,7 +401,7 @@ body{
                 background-color:#FFFFFF;
       }
       .p-box:hover .price{
-                color:#04afda;
+                color:#4158d0;
                 transition: all ease 0.2s;
       }
       
@@ -415,7 +415,8 @@ body{
       }
       
       .contact{
-        background-color: #236c7e;
+       
+        background-color: #4158d0;
       display:flex;
       flex-direction: column;
       justify-content: center;
@@ -517,7 +518,7 @@ body{
       .contact-input a{
       width:200px;
       height:35px;
-      background-color:#236c7e;
+      background-color: #4158d0;
       color:#FFFFFF;
       display: flex;
       font-size: 0.9rem;
@@ -527,8 +528,40 @@ body{
       border-radius: 20px;
       font-weight: 500;
       }
-      
-      
+      .next{
+            display: none;
+      }
+      .prev{
+       display: block;
+       /* height: 10px;
+       width: 5px; */
+       margin-left: 590px;
+      }
+      .btn-grade{
+        height: 40px;
+        background-color: #4158D0;
+        background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+      }
+      .grd-button{
+        height: 30px;
+        width:130px;
+        background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+
+      }
+      .bkmdnen{
+        height: 100vh;
+        background-color: #4158D0;
+background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+      }
+      .heading-he{
+        background: -webkit-linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        
+      }
+
+    
       /* Responsive design */
       
       @media(max-width:1190px){

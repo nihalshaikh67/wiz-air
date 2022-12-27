@@ -144,6 +144,22 @@ const QuotesAdd = () => {
                 </Text>
               </FormControl>
               <FormControl
+                isInvalid={Boolean(errors?.incoterm)}
+                data-invalid={Boolean(errors?.incoterm)}
+              >
+                <FormLabel>Incoterm</FormLabel>
+                <Input
+                  type={"text"}
+                  {...register("incoterm", {
+                    required: "incoterm is required",
+                  })}
+                  placeholder="Incoterm"
+                />
+                <Text color={"red"}>
+                  <ErrorMessage errors={errors} name="incoterm" />
+                </Text>
+              </FormControl>
+              <FormControl
                 isInvalid={Boolean(errors?.remarks)}
                 data-invalid={Boolean(errors?.remarks)}
               >
@@ -162,8 +178,12 @@ const QuotesAdd = () => {
               <Button
                 borderRadius={0}
                 type="submit"
+                _hover={{
+                  color: "",
+                }}
                 variant="solid"
-                colorScheme="teal"
+                bg="#4158d0"
+                color={"white"}
                 width="full"
               >
                 Proceed

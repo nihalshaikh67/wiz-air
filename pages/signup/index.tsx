@@ -56,8 +56,8 @@ const Signup = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome to Wiz Air Cargo</Heading>
+        <Avatar bg="#4158D0" />
+        <Heading className="heading-he">Welcome to Wiz Air Cargo</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           {/* <form onSubmit={HandlSubmit}> */}
           <Stack
@@ -109,8 +109,9 @@ const Signup = () => {
               type="submit"
               variant="solid"
               onClick={handlSubmit}
-              colorScheme="teal"
+              bg="#4158d0"
               width="full"
+              color="white"
             >
               Log in
             </Button>

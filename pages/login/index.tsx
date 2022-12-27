@@ -40,8 +40,8 @@ const Login = () => {
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar bg="teal.500" />
-        <Heading color="teal.400">Welcome to Wiz Air Cargo</Heading>
+        <Avatar bg="#4158d0" />
+        <Heading className="heading-he">Welcome to Wiz Air Cargo</Heading>
         <Box minW={{ base: "90%", md: "468px" }}>
           <form>
             <Stack
@@ -84,7 +84,7 @@ const Login = () => {
                 borderRadius={0}
                 type="submit"
                 variant="solid"
-                colorScheme="teal"
+                colorScheme="#4158d0"
                 width="full"
               >
                 Login
@@ -95,7 +95,7 @@ const Login = () => {
       </Stack>
       <Box>
         New to us?{" "}
-        <Link color="teal.500" href="/signup">
+        <Link color="#4158d0" href="/signup">
           Sign Up
         </Link>
       </Box>

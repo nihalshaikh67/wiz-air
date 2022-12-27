@@ -10,6 +10,7 @@ export const COLUMNS = [
     Filter: ColumnFilter,
     Cell: (props) => {
       const rowData = props.row.original;
+      console.log(rowData);
       const booking_id = rowData.booking_id;
       return (
         <Link href={`/bookings/${booking_id}`}>
@@ -66,7 +67,7 @@ export const COLUMNS = [
     Filter: ColumnFilter,
     Cell: (props) => {
       const rowData = props.row.original;
-      const eta = rowData.eta;
+      const eta = formatEpochToDate(rowData.eta);
       return <Box>{eta}</Box>;
     },
   },
@@ -78,6 +79,64 @@ export const COLUMNS = [
       const rowData = props.row.original;
       const requested_by = rowData.requested_by;
       return <Box>{requested_by}</Box>;
+    },
+  },
+];
+
+export const REPORT_COLUMS = [
+  {
+    Header: "Report",
+    accessor: "report",
+    Filter: ColumnFilter,
+    Cell: (props) => {
+      // const rowData = props.row.original;
+      // console.log(rowData);
+      // const booking_id = rowData.booking_id;
+      return <Box>Wiz port Base dashboard</Box>;
+    },
+  },
+  {
+    Header: "Description",
+    accessor: "description",
+    Filter: ColumnFilter,
+    Cell: (props) => {
+      // const rowData = props.row.original;
+      // console.log(rowData);
+      // const booking_id = rowData.booking_id;
+      return <Box>A report consisting of all the Ports.</Box>;
+    },
+  },
+  {
+    Header: "Created on",
+    accessor: "created_on",
+    Filter: ColumnFilter,
+    Cell: (props) => {
+      // const rowData = props.row.original;
+      // console.log(rowData);
+      // const booking_id = rowData.booking_id;
+      return <Box>26 Dec 2022</Box>;
+    },
+  },
+  {
+    Header: "Created By",
+    accessor: "created_by",
+    Filter: ColumnFilter,
+    Cell: (props) => {
+      // const rowData = props.row.original;
+      // console.log(rowData);
+      // const booking_id = rowData.booking_id;
+      return <Box>Jagadeesh D</Box>;
+    },
+  },
+  {
+    Header: "Action",
+    accessor: "Viactionew",
+    Filter: ColumnFilter,
+    Cell: (props) => {
+      // const rowData = props.row.original;
+      // console.log(rowData);
+      // const booking_id = rowData.booking_id;
+      return <Box>View</Box>;
     },
   },
 ];

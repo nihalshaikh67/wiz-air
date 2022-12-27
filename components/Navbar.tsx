@@ -35,7 +35,7 @@ const NavBar = () => {
     <Box as="section" pb={{ base: "12", md: "24" }}>
       <Box
         as="nav"
-        bg="teal"
+        backgroundColor="#4158d0"
         height={"60px"}
         boxShadow={useColorModeValue("sm", "sm-dark")}
       >

@@ -26,7 +26,7 @@ const results = () => {
           We have {currentQuote?.quotes?.length} quotes for this booking.
         </Text>
         <Link href={`/quotes/rates?qid=${quoteId}`}>
-          <Text fontSize={"16px"} color={"teal"} mt="4px">
+          <Text fontSize={"16px"} color={"#4158d0"} mt="4px">
             {" "}
             {quote ? "Add Another quote?" : "Add a quote?"}
           </Text>

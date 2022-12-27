@@ -4,7 +4,7 @@ import Table from "../../components/Table/Table";
 import { COLUMNS } from "../../components/Table/BookingColumns";
 import { useStateContext } from "../../context/StateContext";
 // import { BookingData } from "../../components/mock-data";
-
+// import AccessAlarmIcon from "@mui/icons-mat÷erial/AccessAlarm";
 export default function Home() {
   const { bookingsData, AddBooking } = useStateContext();
   const [isSSR, setIsSSR] = React.useState(false);
@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <Box>
+    <Box className="">
       {isSSR && (
         <Box>
           <Text fontSize={"25px"} ml="44px" mb="40px" p="25px">

@@ -51,7 +51,7 @@ const Table = ({ tableColumns, tableData }) => {
               {headerGroup.headers.map((column) => (
                 <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
-                  <div>{column.canFilter ? column.render("Filter") : null}</div>
+                  {/* <div>{column.canFilter ? column.render("Filter") : null}</div> */}
                   <span>
                     {column.isSorted ? (column.isSortedDesc ? "🔽" : "🔼") : ""}
                   </span>
@@ -112,7 +112,7 @@ const Table = ({ tableColumns, tableData }) => {
 
         table td,
         table th {
-          border: 1px solid #ddd;
+          border: none;
           padding: 8px;
         }
         tr {
@@ -132,8 +132,10 @@ const Table = ({ tableColumns, tableData }) => {
           padding-top: 12px;
           padding-bottom: 12px;
           text-align: center;
-          background-color: #44d7a8;
-          color: black;
+          border: none;
+
+          background-color: #99b3ff;
+          color: white;
         }
       `}</style>
     </div>

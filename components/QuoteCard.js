@@ -9,9 +9,10 @@ const QuoteCard = ({ quote, bookingRequest }) => {
   const { AddBooking } = useStateContext();
   const tax = (quote?.sell * quote?.tax) / 100;
   const onApprove = async () => {
-    const result = Math.random().toString(36).substring(2, 7);
+    const result = Math.random().toString(36).substring(2, 7).toUpperCase();
     const currentQuote = {
       ...bookingRequest,
+      eta: Math.floor((Date.now() + 1200000) / 1000),
       booking_id: result,
       booking_on: Math.floor(Date.now() / 1000),
       status: "Booking created",
@@ -54,7 +55,7 @@ const QuoteCard = ({ quote, bookingRequest }) => {
       </Box>
       <Link href="/success">
         <Button
-          bg={"teal"}
+          bg={"#4158d0"}
           color={"white"}
           mt="30px"
           ml="320px"

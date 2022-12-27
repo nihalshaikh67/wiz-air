@@ -74,7 +74,7 @@ export const COLUMNS = [
       // console.log(rowData.quotes.length, "naihl");
       return (
         <Box pointerEvents={disable && "none"}>
-          <Link href="/">
+          <Link href={`/bookings/results?qid=${rowData.quote_id}`}>
             <Box color={disable && "gray"}>
               {disable ? "view quote" : status}
             </Box>

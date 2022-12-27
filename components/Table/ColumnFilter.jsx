@@ -12,6 +12,11 @@ const ColumnFilter = ({ column }) => {
         onChange={(e) => {
           setFilter(e.target.value);
         }}
+        // position={"absolute"}
+        // mb="182px"
+        // mr="60px"
+        zIndex={1}
+        // mb={"150px"}
       />
     </span>
   );
